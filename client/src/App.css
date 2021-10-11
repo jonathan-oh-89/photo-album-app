@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora&display=swap');
+
+body {
+  background-color: #212c3b;
+}
+
+* {
+  font-family: "AstroSpace", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}

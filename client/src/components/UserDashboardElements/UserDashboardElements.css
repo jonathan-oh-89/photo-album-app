@@ -1,0 +1,32 @@
+.profile-section {
+    width: 350px;
+    background-color: blue;
+    float: left;
+    height: 100vh;
+}
+
+.profile-header {
+    background-color: brown;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-image {
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.profile-album-section {
+    margin: 0 0 0 350px;
+    height: 100vh;
+    color: #eaeaea;
+    /* background-color: red; */
+    padding: 30px;
+}
+
+.profile-album-section h1 {
+   text-align: center;
+}

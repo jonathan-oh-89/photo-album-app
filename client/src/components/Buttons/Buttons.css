@@ -1,0 +1,31 @@
+.sign-button {
+    cursor: pointer;
+    margin-left: auto;
+    font-size: inherit;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 30px;
+    background: #004BA8;
+    color: white;
+}
+
+.sign-button:hover {
+    background-color: #00adb5;
+}
+
+.loggedin-button {
+    cursor: pointer;
+    margin-left: auto;
+    font-size: inherit;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    /* background: #004BA8; */
+    background-color: inherit;
+    color: white;
+}
+
+.loggedin-button:hover {
+    background-color: #00adb5;
+}
+

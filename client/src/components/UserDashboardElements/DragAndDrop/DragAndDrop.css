@@ -1,0 +1,71 @@
+.photo-upload-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #141b25;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.photo-upload-inner-container {
+    border: 1px dashed #eaeaea;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    min-height: 150px;
+}
+
+.drag-files-section {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    width: 100%;
+    min-height: 150px;
+}
+
+.upload-button {
+    color: inherit;
+    border: 1px solid white;
+    font-size: inherit;
+    border-radius: 5px;
+    padding: 20px 100px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.thumbsContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+.thumb {
+    display: inline-flex;
+    border-radius: 2px;
+    border: 1px solid #eaeaea;
+    margin-bottom: 8px;
+    margin-right: 8px;
+    max-width: 100px;
+    max-height: 100px;
+    padding: 1px;
+    margin-top: 10px;
+    box-sizing: border-box;
+}
+  
+.thumbInner {
+    display: flex;
+    min-width: 0;
+    overflow: hidden;
+}
+
+img {
+    display: block;
+    width: auto;
+    height: 100%;
+ }
