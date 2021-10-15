@@ -45,19 +45,9 @@ app.use(passport.session());
 const { isAuth } = require('./config/passport')
 
 app.use((req, res, next) => {
-    // console.log("*** session user: ", req.user.username);
     console.log("*** session user: ", req.user);
     next();
 })
-
-app.post('/login', isAuth, (req, res, next) => {
-    console.log("*** RECEIVED LOGIN POST");
-    passport.authenticate('local', (err, user, info) => {
-        if (err) { return next(err) }
-        if (!user) { return res.status(401).json({ message: info.message }) }
-        res.status(200).json(user);
-    })(req, res, next);
-});
 
 app.post('/register', async (req, res) => {
     console.log("*** RECEIVED REGISTER POST");
@@ -65,7 +55,6 @@ app.post('/register', async (req, res) => {
     const exists = await User.exists({ username: req.body.username })
 
     if (exists) {
-        console.log("Username already taken!");
         res.status(400).send({ 'message': 'Username already taken' })
     } else {
         bcrypt.genSalt(10, (err, salt) => {
@@ -80,14 +69,41 @@ app.post('/register', async (req, res) => {
                 })
 
                 await newUser.save();
-                res.status(200).json(newUser);
+
+                req.logIn(newUser, (err) => {
+                    if (err) { return next(err); }
+                    return res.status(200).json(newUser);
+                });
             })
         })
     }
 });
 
+
+app.post('/login', (req, res, next) => {
+    console.log("*** RECEIVED LOGIN POST");
+    passport.authenticate('local', (err, user, info) => {
+        if (err) {
+            return next(err)
+        }
+        if (!user) {
+            return res.status(401).json({ message: "Invalid Username or Password" })
+        }
+
+        req.logIn(user, (err) => {
+            if (err) { return next(err); }
+            return res.status(200).json(user);
+        });
+
+
+    })(req, res, next);
+});
+
+
 app.get('/logout', (req, res) => {
-    res.send({ 'message': 'logout success!' })
+    req.logout();
+    // req.session.destroy();
+    res.status(200).send({ 'message': 'logout success!' })
 })
 
 
@@ -104,7 +120,7 @@ app.post('/retrieveimages', isAuth, async (req, res, next) => {
     res.status(200).send(photoArray)
 })
 
-app.get('/retrieveallimages', isAuth, async (req, res, next) => {
+app.get('/retrieveallimages', async (req, res) => {
     console.log("*** RECEIVED RETRIEVEALLIMAGES POST");
 
     const photoArray = await cloudinaryRetrieveAll()

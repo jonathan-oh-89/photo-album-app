@@ -50,7 +50,7 @@ export const ProfileAlbumSection = () => {
                 <h1>Add Photos</h1>
                 <DragAndDrop />
 
-                <div className="">
+                <div>
                     <h1>Photo Album</h1>
                     {/* <AlbumImages /> */}
 

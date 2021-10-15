@@ -14,10 +14,6 @@ export const ProfileSection = () => {
                     <Avatar className="profile-image" name="Fff" size={150} />
                     <h1>{appState.user.username}</h1>
                 </div>
-                <div className="profile-content">
-                    <h2>Your Name<span>Designation</span></h2>
-
-                </div>
             </div>
         </div>
     )

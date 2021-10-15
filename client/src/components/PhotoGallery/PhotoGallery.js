@@ -37,12 +37,14 @@ export const PhotoGallery = () => {
         )
     }
 
+
+
     return (
         <div className="gallery-container">
             <div> <h1>Photo Gallery</h1></div>
             <article>
                 {allUserImages.map((img, i) =>
-                    <section>
+                    <section key={i}>
                         <div>
                             <ImageComponent username={img.username} imageid={img.imageid} url={img.url} />
                         </div>

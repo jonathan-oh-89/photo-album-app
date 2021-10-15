@@ -51,8 +51,6 @@ module.exports.cloudinaryRetrieve = async (username) => {
             photoIdArray.push({ imageid: img.filename, url: img.url })
         })
     })
-
-    console.log(`Retrieve for folder ${username}: `, photoIdArray);
     return photoIdArray;
 }
 

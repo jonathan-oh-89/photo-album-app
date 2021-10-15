@@ -1,9 +1,7 @@
 .profile-section-container {
-    width: 350px;
-    background-color: blue;
+    width: 400px;
     float: left;
     height: 100vh;
-    display: flex;
 }
 
 
@@ -17,14 +15,20 @@
 .profile-header {
     border-radius: 10px;
     background-color: brown;
-    height: 300px;
+    min-height: 300px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    word-wrap: break-word;
+}
+
+.profile-header h1 {
+    padding: 5px 15px;
 }
 
 .profile-image {
+    margin-left: auto;
+    margin-right: auto;
     border-radius: 50%;
     margin-bottom: 10px;
 }

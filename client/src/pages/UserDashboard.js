@@ -4,7 +4,7 @@ import { ProfileAlbumSection } from "../components/UserDashboardElements/Profile
 
 const UserDashboard = () => {
     return (
-        <div className="profile-dashboard">
+        <div className="user-dashboard">
             <ProfileSection />
             <ProfileAlbumSection />
         </div>

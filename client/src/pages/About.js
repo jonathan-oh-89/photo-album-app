@@ -17,12 +17,13 @@ const About = () => {
 
             <h2>What this app does</h2>
             <p>Users can sign up for an account via sign up form by providing a username and password. After signing up, the user can upload image files through the user dashboard.
-                Users can either click the upload button or drag and drop image files. Images are upload to the cloudinary cloud storage. Users have the option for deleting images
-                from their account. To view all the images uploaded by all users, simple go the the Photos page.
+                Users can either click the upload button or drag and drop image files. Only image files are allowed for upload. Images are upload to the cloudinary cloud storage. Users have the option for deleting images
+                from their account. To view all the images uploaded by all users, go the the Photos page.
                 User authentication is handled with Passportjs using the local strategy.
                 User sessions are created and managed through the Express framework.
-
             </p>
+            <h2>Noted shortcomings of this app:</h2>
+            <p>1. Authentication does not handle same usernames with caps. So both JonDoe and jondoe will register as a user.</p>
         </div>
     )
 }

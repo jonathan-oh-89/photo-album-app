@@ -5,6 +5,7 @@
     height: 80px;
     font-size: 1rem;
     align-items: center;
+    margin-bottom: 3rem;
 }
 
 .logo-link {
@@ -56,18 +57,10 @@
 .dropdown-section {
     position: absolute;
     right: 2rem;
-    /* margin: 0 2rem 0 2rem; */
-    /* padding: 8px 10px; */
 }
 
 .dropdown-menu {
-    /* position: absolute; */
-    /* display: none; */
     overflow:visible;
-    /* margin-top: -5px; */
-    /* margin-left: auto; */
-    /* margin-left: 2rem; */
-    /* margin: 10px 0; */
     background: #004BA8;
     width: 100%;    
 }

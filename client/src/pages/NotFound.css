@@ -1,0 +1,31 @@
+.not-found {
+    display: flex;
+    margin-top: 10vh;
+    justify-content: center;
+}
+
+.not-found-icon {    
+    /* background-color: red; */
+}
+
+.not-found-text {
+    color: white;
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.not-found-text h1 {
+    font-size: 12rem;
+    font-weight: lighter;
+}
+
+.not-found-text h2 {
+    font-size: 6rem;
+    font-weight: lighter;
+}
+
+
+.not-found-text h3 {
+    font-weight: lighter;
+}

@@ -1,13 +1,14 @@
+
 .profile-album-section {
-    margin: 0 0 0 350px;
     height: 100vh;
     color: #eaeaea;
-    /* background-color: red; */
-    padding: 30px;
+    padding: 0 30px;
 }
 
 .profile-album-section h1 {
-   text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 
@@ -29,3 +30,4 @@
     color: red;
     margin: 5px;
 }
+

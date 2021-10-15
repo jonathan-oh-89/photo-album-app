@@ -13,6 +13,7 @@ const verifyUserLogin = (username, password, done) => {
         bcrypt.compare(password, user.password, (err, res) => {
 
             if (res === false) {
+                console.log("Incorrect password");
                 return done(null, false, { message: 'Incorrect password.' });
             }
 
@@ -29,9 +30,9 @@ passport.use(new LocalStrategy(verifyUserLogin));
 
 //when we log in, we serialize and deserialize user
 passport.serializeUser((user, done) => {
-    console.log("Serialize: ", user);
+    console.log("Serialize: ", user._id);
     // console.log("Serializing");
-    done(null, user.id);
+    done(null, user._id);
 })
 
 passport.deserializeUser((userId, done) => {

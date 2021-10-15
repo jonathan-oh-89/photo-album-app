@@ -30,12 +30,14 @@ export const AuthenticationForm = () => {
     }
 
     const inputValidation = (type, inputText) => {
-
+        if (type === 'value' && inputText.length > 0) {
+            return true;
+        }
         if (type === 'username' && inputText.match(/^[0-9a-zA-Z_]+$/)) {
             return true;
         }
-        if (type === 'password' && inputText.match(/\s/)) {
-            return false;
+        if (type === 'password' && !inputText.match(/(\s)/)) {
+            return true;
         }
 
         return false;
@@ -45,10 +47,17 @@ export const AuthenticationForm = () => {
     const handleSignUp = async (e) => {
         e.preventDefault();
 
-        const submitData = {
-            username: usernameSubmit,
-            password: passwordSubmit,
+        if (!inputValidation("value", usernameSubmit)) {
+            setFailedAuthMsg("Please enter your username")
+            showFailedAuthMsg(true)
+            return
         }
+        if (!inputValidation("value", passwordSubmit)) {
+            setFailedAuthMsg("Please enter your password")
+            showFailedAuthMsg(true)
+            return
+        }
+
 
         if (!inputValidation("username", usernameSubmit)) {
             setFailedAuthMsg("Please only use Alphanumeric or \"_\" for username")
@@ -59,6 +68,11 @@ export const AuthenticationForm = () => {
             setFailedAuthMsg("Please do not include space in password")
             showFailedAuthMsg(true)
             return
+        }
+
+        const submitData = {
+            username: usernameSubmit,
+            password: passwordSubmit,
         }
 
         const response = await signUpUser(submitData)
@@ -95,8 +109,8 @@ export const AuthenticationForm = () => {
 
         const response = await logUserIn(submitData);
         const respJson = await response.json();
-
         console.log("Login response: ", respJson);
+
 
         if (response.status === 200) {
             console.log("dispatching login success and rerouting to userdashboard");
