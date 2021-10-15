@@ -1,4 +1,3 @@
-
 const mongoose = require('mongoose');
 require('dotenv').config();
 
@@ -14,8 +13,6 @@ mongoose.connect(mongoConnectionString, {
 }, () => {
     console.log("Mongo connected!");
 });
-
-
 
 const MongoStore = require('connect-mongo');
 

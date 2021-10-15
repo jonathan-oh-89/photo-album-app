@@ -1,0 +1,31 @@
+.about-page {
+    align-items: center;
+    padding: 0 20rem;
+    color: white;
+    text-align: center;
+}
+
+.about-page h1 {
+    margin-top: 50px;
+}
+
+.about-page h2 {
+    margin-top: 50px;
+    font-weight: lighter;
+    margin-bottom: 20px;
+}
+
+.about-page img {
+    max-height:150px;
+    max-width:500px;
+}
+
+.tech-images {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.about-page p {
+    line-height: 30px;
+}

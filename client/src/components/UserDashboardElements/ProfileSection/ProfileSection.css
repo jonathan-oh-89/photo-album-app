@@ -1,11 +1,21 @@
-.profile-section {
+.profile-section-container {
     width: 350px;
     background-color: blue;
     float: left;
     height: 100vh;
+    display: flex;
+}
+
+
+.profile-section {
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
 }
 
 .profile-header {
+    border-radius: 10px;
     background-color: brown;
     height: 300px;
     display: flex;
@@ -17,16 +27,4 @@
 .profile-image {
     border-radius: 50%;
     margin-bottom: 10px;
-}
-
-.profile-album-section {
-    margin: 0 0 0 350px;
-    height: 100vh;
-    color: #eaeaea;
-    /* background-color: red; */
-    padding: 30px;
-}
-
-.profile-album-section h1 {
-   text-align: center;
 }

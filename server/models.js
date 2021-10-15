@@ -15,7 +15,7 @@ const UserSchema = mongoose.Schema({
         required: true
     },
     album: {
-        type: [String],
+        type: [Object],
         required: true
     },
 },

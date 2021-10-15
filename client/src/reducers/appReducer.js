@@ -3,7 +3,8 @@ export const actionType = {
     SIGNUP: "SIGNUP",
     LOGIN_SUCCESS: "LOGIN_SUCCESS",
     TOGGLE_AUTH_FORM: "TOGGLE_AUTH_FORM",
-    LOGOUT: "LOGOUT"
+    LOGOUT: "LOGOUT",
+    UPDATE_ALBUM: "UPDATE_ALBUM"
 }
 
 export default function reducer(state, action) {
@@ -14,7 +15,9 @@ export default function reducer(state, action) {
                 showAuthForm: false,
                 userAuthenticated: true,
                 user: {
+                    _id: action._id,
                     username: action.username,
+                    album: action.useralbum
                 }
             };
         case actionType.TOGGLE_AUTH_FORM:
@@ -26,10 +29,11 @@ export default function reducer(state, action) {
             return {
                 ...state,
                 showAuthForm: false,
-                userAuthenticated: false,
+                userAuthenticated: true,
                 user: {
-                    username: "",
-                    password: "",
+                    _id: action._id,
+                    username: action.username,
+                    album: []
                 }
             };
         case actionType.LOGOUT:
@@ -38,8 +42,17 @@ export default function reducer(state, action) {
                 showAuthForm: false,
                 userAuthenticated: false,
                 user: {
+                    _id: "",
                     username: "",
-                    password: "",
+                    album: ""
+                }
+            };
+        case actionType.UPDATE_ALBUM:
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    album: action.updatedAlbum
                 }
             };
         default:

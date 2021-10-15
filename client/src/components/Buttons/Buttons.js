@@ -2,8 +2,10 @@ import React, { useContext } from 'react'
 import "./Buttons.css";
 import { AppContext } from "../../context/appContext";
 import { BiUserCircle } from "react-icons/bi";
-import { useHistory } from "react-router-dom";
 import { actionType } from "../../reducers/appReducer";
+import { Link } from 'react-router-dom';
+import { logoutUser } from "../../api/api";
+import { useHistory } from "react-router-dom";
 
 
 
@@ -30,18 +32,46 @@ export const UserAuthButton = ({ text }) => {
 
 
 export const LoggedInButton = () => {
-    const { appState } = useContext(AppContext);
+    const history = useHistory();
+    const { appState, dispatch } = useContext(AppContext);
 
-    // const history = useHistory();
+    const handleLogout = async () => {
+        const response = await logoutUser()
 
-    // function handleClick() {
-    //     history.push("/photoalbum");
-    // }
+        if (response.status === 200) {
+            dispatch({
+                type: actionType.LOGOUT
+            })
+            console.log("User logged out");
+            localStorage.clear()
+            history.push('/')
+        } else {
+            console.log("Error on logout");
+            alert("Something went wrong")
+        }
+    }
+
+    let userDropdown = (
+        <ul className="dropdown-content">
+            <Link to="/userdashboard" className="dropdown-link" style={{ textDecoration: 'none' }}>
+                <li>Dashboard</li>
+            </Link>
+            <li className="dropdown-item" onClick={handleLogout}>Logout</li>
+        </ul>
+    )
+
+    if (!appState.userAuthenticated) {
+        userDropdown = (<></>)
+    }
 
     return (
-        <button className="loggedin-button">
-            Welcome, {appState.user.username}
-            <BiUserCircle size={20} />
-        </button>
+        <div className="user-dropdown">
+            <button className="loggedin-button">
+                <p>Welcome, {appState.user.username}</p>
+                <BiUserCircle className="loggedin-icon" size={25} />
+            </button>
+            {userDropdown}
+        </div>
+
     )
 }

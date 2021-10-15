@@ -13,9 +13,10 @@ export const useLocalStorageReducer = (key, reducer, defaultValue) => {
 
         return value
     })
+
     useEffect(() => {
         window.localStorage.setItem(key, JSON.stringify(state));
-    }, [state]);
+    }, [key, state]);
 
 
     return [state, dispatch];

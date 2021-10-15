@@ -1,20 +1,29 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useState, useContext } from 'react'
 import { useDropzone } from "react-dropzone";
 import { BiImage } from "react-icons/bi";
 import "./DragAndDrop.css";
 import { uploadPhotosApi } from "../../../api/api";
+import { AppContext } from "../../../context/appContext";
+import { actionType } from '../../../reducers/appReducer';
 
-function DragAndDrop() {
+const DragAndDrop = () => {
+    console.log("Render DragAndDrop");
+    const { appState, dispatch } = useContext(AppContext);
     const [files, setFiles] = useState([]);
     const [showUpload, setShowUpload] = useState(false);
 
     const onDrop = useCallback(acceptedFiles => {
+
+        if (acceptedFiles.length > 0) {
+            setShowUpload(true)
+        }
+
         setFiles(
             acceptedFiles.map(file => Object.assign(file, {
                 preview: URL.createObjectURL(file)
             }))
         )
-        setShowUpload(true)
+
     }, [])
 
     const thumbs = files.map(file => (
@@ -28,8 +37,8 @@ function DragAndDrop() {
             </div>
         </div>
     ));
+    const { getRootProps, getInputProps, isDragActive, isDragReject } = useDropzone({ onDrop, accept: 'image/jpeg, image/png' })
 
-    const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop, accept: 'image/jpeg, image/png' })
 
 
     const dragDropSection = (
@@ -37,15 +46,25 @@ function DragAndDrop() {
             <BiImage size={50} />
             <input {...getInputProps()} />
             {
-                isDragActive ?
+                isDragActive ? isDragReject ? <p style={{ color: "red" }}>Only jpeg and png files are allowed</p> :
                     <p>Drop the files here ...</p> :
                     <p>Drag 'n' drop some files here, or click to select files</p>
             }
         </div>
     )
 
-    function handleUpload() {
-        uploadPhotosApi(files)
+
+    const handleUpload = async () => {
+        const newImgIdArray = await uploadPhotosApi(files, appState.user)
+        const updatedAlbum = appState.user.album.concat(newImgIdArray)
+
+        dispatch({
+            type: actionType.UPDATE_ALBUM,
+            updatedAlbum: updatedAlbum
+        })
+
+        setFiles([])
+        setShowUpload(false)
     }
 
     const uploadPhotoSection = (
@@ -59,17 +78,16 @@ function DragAndDrop() {
         </>
     )
 
-
     return (
         <div className="photo-upload-container">
             <div {...getRootProps()} className="photo-upload-inner-container">
                 {showUpload ? uploadPhotoSection : dragDropSection}
             </div>
+
             <aside className="thumbsContainer">
                 {thumbs}
             </aside>
         </div>
-
     )
 }
 

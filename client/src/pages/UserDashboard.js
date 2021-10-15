@@ -1,14 +1,8 @@
-import React, { useContext } from 'react'
-import { ProfileSection, ProfileAlbumSection } from "../components/UserDashboardElements/UserDashboardElements";
-import { actionType } from "../reducers/appReducer";
-import { AppContext } from "../context/appContext";
-
+import React from 'react'
+import { ProfileSection } from "../components/UserDashboardElements/ProfileSection/ProfileSection";
+import { ProfileAlbumSection } from "../components/UserDashboardElements/ProfileAlbumSection/ProfileAlbumSection";
 
 const UserDashboard = () => {
-    const { appState, dispatch } = useContext(AppContext);
-
-
-
     return (
         <div className="profile-dashboard">
             <ProfileSection />

@@ -1,4 +1,4 @@
-import React, { createContext, useReducer } from 'react'
+import React, { createContext } from 'react'
 import userReducer from "../reducers/appReducer";
 import { useLocalStorageReducer } from "../hooks/useLocalStorageReducer";
 
@@ -8,8 +8,9 @@ const defaultState = {
     showAuthForm: false,
     userAuthenticated: false,
     user: {
+        _id: "",
         username: "",
-        password: "",
+        album: []
     }
 }
 

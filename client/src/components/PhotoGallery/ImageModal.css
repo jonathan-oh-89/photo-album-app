@@ -1,0 +1,26 @@
+.image-modal-container {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-modal {
+    position: absolute;
+    margin-left: auto; 
+    margin-right: auto; 
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.image-modal-text {
+    padding: 5px;
+    color: white;
+    font-weight: lighter;
+}

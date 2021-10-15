@@ -1,0 +1,31 @@
+.profile-album-section {
+    margin: 0 0 0 350px;
+    height: 100vh;
+    color: #eaeaea;
+    /* background-color: red; */
+    padding: 30px;
+}
+
+.profile-album-section h1 {
+   text-align: center;
+}
+
+
+.album-images {
+    display: inline-block;
+    margin: 0 0 1em;
+    vertical-align: top;
+}
+
+.album-images img {
+    padding: 5px;
+    width:100%;
+    max-width:300px;
+}
+
+.album-image-close {
+    cursor: pointer;
+    position: absolute;
+    color: red;
+    margin: 5px;
+}
