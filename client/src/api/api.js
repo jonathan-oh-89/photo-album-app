@@ -1,6 +1,7 @@
 export const signUpUser = async (data) => {
     try {
-        const apiURL = "http://localhost:8000/register"
+        // const apiURL = "http://localhost:8000/register"
+        const apiURL = "/register"
 
         const response = await fetch(apiURL, {
             credentials: 'include',
@@ -22,7 +23,8 @@ export const signUpUser = async (data) => {
 
 export const logUserIn = async (data) => {
     try {
-        const apiURL = "http://localhost:8000/login"
+        // const apiURL = "http://localhost:8000/login"
+        const apiURL = "/login"
 
         const response = await fetch(apiURL, {
             credentials: 'include',
@@ -43,7 +45,8 @@ export const logUserIn = async (data) => {
 
 export const logoutUser = async () => {
     try {
-        const apiURL = "http://localhost:8000/logout"
+        // const apiURL = "http://localhost:8000/logout"
+        const apiURL = "/logout"
 
         const response = await fetch(apiURL, {
             credentials: 'include',
@@ -65,7 +68,8 @@ export const retrievePhotosApi = async (user) => {
     console.log("retrievePhotosApi for user state: ", user);
 
     try {
-        const apiURL = `http://localhost:8000/retrieveimages`
+        // const apiURL = `http://localhost:8000/retrieveimages`
+        const apiURL = `retrieveimages`
 
         const response = await fetch(apiURL, {
             credentials: 'include',
@@ -90,7 +94,8 @@ export const retrievePhotosApi = async (user) => {
 
 export const deletePhotosApi = async (user, imageid) => {
     try {
-        const apiURL = "http://localhost:8000/deleteimages"
+        // const apiURL = "http://localhost:8000/deleteimages"
+        const apiURL = "/deleteimages"
 
         const response = await fetch(apiURL, {
             credentials: 'include',
@@ -116,7 +121,8 @@ export const uploadPhotosApi = async (data, user) => {
     const encodedImages = await readImageFiles(data)
 
     try {
-        const apiURL = "http://localhost:8000/uploadimages"
+        // const apiURL = "http://localhost:8000/uploadimages"
+        const apiURL = "/uploadimages"
 
         const response = await fetch(apiURL, {
             credentials: 'include',
@@ -176,7 +182,8 @@ export const retrieveAllPhotosApi = async () => {
     console.log("executing retrieveAllPhotosApi");
 
     try {
-        const apiURL = `http://localhost:8000/retrieveallimages`
+        // const apiURL = `http://localhost:8000/retrieveallimages`
+        const apiURL = `/retrieveallimages`
 
         const response = await fetch(apiURL, {
             credentials: 'include',
