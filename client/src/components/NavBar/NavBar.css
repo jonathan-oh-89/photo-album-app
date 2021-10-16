@@ -31,7 +31,6 @@
 
 .nav-menu {
     display: flex;
-    /* width: 50vw; */
     width: 100%;
     text-align: center;
     list-style: none;
@@ -55,35 +54,4 @@
     float: right;
     margin-right: 2rem;
     margin-left: auto;
-}
-
-
-.dropdown-section {
-    position: absolute;
-    right: 2rem;
-}
-
-.dropdown-menu {
-    overflow:visible;
-    background: #004BA8;
-    width: 100%;    
-}
-
-
-.dropdown-menu li {
-    color: white;
-    list-style: none;
-    padding-top: 15px;
-    padding: 10px 10px;
-    cursor: pointer;
-}
-
-.dropdown-menu li:hover {
-    border-radius: 5px;
-    background-color: #00adb5;
-}
-
-
-.nav-user:hover .login-button:hover .dropdown-menu {
-    display: block;
 }
