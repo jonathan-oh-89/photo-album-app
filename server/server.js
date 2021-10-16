@@ -24,7 +24,7 @@ if (process.env.NODE_ENV === "production") {
 const sessionStore = require('./config/db');
 
 
-const allowedOrigins = ['http://localhost:3000'];
+const allowedOrigins = ['http://localhost:3000', 'https://photo-app-jono.herokuapp.com'];
 const corsOptions = {
     origin: allowedOrigins,
     credentials: true
