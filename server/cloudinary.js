@@ -1,7 +1,18 @@
 const { v4: uuidv4 } = require("uuid")
-require("dotenv").config()
+const path = require('path');
 const cloudinary = require("cloudinary").v2
 
+
+if (process.env.NODE_ENV !== "production") {
+    require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
+}
+
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_KEY,
+    api_secret: process.env.CLOUDINARY_SECRET,
+    secure: true
+})
 
 module.exports.cloudinaryUpload = async (imgFiles, username) => {
     const photoAlbum = []
@@ -56,14 +67,14 @@ module.exports.cloudinaryRetrieve = async (username) => {
 
 
 
-module.exports.cloudinaryRetrieveAll = async (username) => {
+module.exports.cloudinaryRetrieveAll = async () => {
     const photoIdArray = []
-
     await cloudinary.search.expression().execute().then(results => {
         results.resources.map(img => {
             photoIdArray.push({ username: img.folder, imageid: img.filename, url: img.url })
         })
-    })
+    }).catch((err) => { console.log("Cloudinary retrieve all error: ", err); }
+    )
 
     return photoIdArray;
 }

@@ -1,9 +1,28 @@
+let REGISTER_URL = "/register"
+let LOGIN_URL = "/login"
+let LOGOUT_URL = "/logout"
+let RETRIEVE_IMAGE_URL = "/retrieveimages"
+let DELETE_IMAGE_URL = "/deleteimages"
+let UPLOAD_IMAGE_URL = "/uploadimages"
+let RETRIEVE_ALL_IMAGE_URL = "/retrieveallimages"
+
+
+if (process.env.NODE_ENV !== "production") {
+    REGISTER_URL = "http://localhost:8000/register"
+    LOGIN_URL = "http://localhost:8000/login"
+    LOGOUT_URL = "http://localhost:8000/logout"
+    RETRIEVE_IMAGE_URL = "http://localhost:8000/retrieveimages"
+    DELETE_IMAGE_URL = "http://localhost:8000/deleteimages"
+    UPLOAD_IMAGE_URL = "http://localhost:8000/uploadimages"
+    RETRIEVE_ALL_IMAGE_URL = "http://localhost:8000/retrieveallimages"
+}
+
+
+
+
 export const signUpUser = async (data) => {
     try {
-        // const apiURL = "http://localhost:8000/register"
-        const apiURL = "/register"
-
-        const response = await fetch(apiURL, {
+        const response = await fetch(REGISTER_URL, {
             credentials: 'include',
             headers: {
                 'Accept': 'application/json',
@@ -23,10 +42,8 @@ export const signUpUser = async (data) => {
 
 export const logUserIn = async (data) => {
     try {
-        // const apiURL = "http://localhost:8000/login"
-        const apiURL = "/login"
 
-        const response = await fetch(apiURL, {
+        const response = await fetch(LOGIN_URL, {
             credentials: 'include',
             headers: {
                 'Accept': 'application/json',
@@ -45,10 +62,7 @@ export const logUserIn = async (data) => {
 
 export const logoutUser = async () => {
     try {
-        // const apiURL = "http://localhost:8000/logout"
-        const apiURL = "/logout"
-
-        const response = await fetch(apiURL, {
+        const response = await fetch(LOGOUT_URL, {
             credentials: 'include',
             headers: {
                 'Accept': 'application/json',
@@ -65,13 +79,8 @@ export const logoutUser = async () => {
 }
 
 export const retrievePhotosApi = async (user) => {
-    console.log("retrievePhotosApi for user state: ", user);
-
     try {
-        // const apiURL = `http://localhost:8000/retrieveimages`
-        const apiURL = `retrieveimages`
-
-        const response = await fetch(apiURL, {
+        const response = await fetch(RETRIEVE_IMAGE_URL, {
             credentials: 'include',
             headers: {
                 'Accept': 'application/json',
@@ -94,10 +103,7 @@ export const retrievePhotosApi = async (user) => {
 
 export const deletePhotosApi = async (user, imageid) => {
     try {
-        // const apiURL = "http://localhost:8000/deleteimages"
-        const apiURL = "/deleteimages"
-
-        const response = await fetch(apiURL, {
+        const response = await fetch(DELETE_IMAGE_URL, {
             credentials: 'include',
             headers: {
                 'Accept': 'application/json',
@@ -121,10 +127,7 @@ export const uploadPhotosApi = async (data, user) => {
     const encodedImages = await readImageFiles(data)
 
     try {
-        // const apiURL = "http://localhost:8000/uploadimages"
-        const apiURL = "/uploadimages"
-
-        const response = await fetch(apiURL, {
+        const response = await fetch(UPLOAD_IMAGE_URL, {
             credentials: 'include',
             headers: {
                 'Accept': 'application/json',
@@ -177,15 +180,12 @@ const readImage = (file) => {
     });
 }
 
-
 export const retrieveAllPhotosApi = async () => {
     console.log("executing retrieveAllPhotosApi");
 
     try {
-        // const apiURL = `http://localhost:8000/retrieveallimages`
-        const apiURL = `/retrieveallimages`
 
-        const response = await fetch(apiURL, {
+        const response = await fetch(RETRIEVE_ALL_IMAGE_URL, {
             credentials: 'include',
             headers: {
                 'Accept': 'application/json',
