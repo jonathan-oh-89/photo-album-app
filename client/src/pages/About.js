@@ -30,6 +30,7 @@ const About = () => {
                 <p>1. Authentication does not handle same usernames with caps. So both JonDoe and jondoe will register as a user.</p>
                 <p>2. This is not a fully responsive app.</p>
                 <p>3. Server side error handling only uses default provided by Express.</p>
+                <p>4. Images may take some time to fully upload to Cloudinary. No logic is in place to wait for all images to finish before rendering the user album in the user dashboard.</p>
             </div>
 
         </div>
