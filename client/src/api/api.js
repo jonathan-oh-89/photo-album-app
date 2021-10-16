@@ -195,6 +195,7 @@ export const retrieveAllPhotosApi = async () => {
         })
 
         console.log("Log api result: ", response);
+        console.log("Log api body: ", response.body);
 
         const result = await response.json();
 
