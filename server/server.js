@@ -135,7 +135,7 @@ app.post('/retrieveimages', isAuth, async (req, res, next) => {
 app.get('/retrieveallimages', async (req, res) => {
     console.log("*** RECEIVED RETRIEVEALLIMAGES POST");
     const photoArray = await cloudinaryRetrieveAll()
-    res.status(200).send(photoArray)
+    res.status(200).send({ 'message': 'something wrong', 'data': photoArray })
 })
 
 app.post('/uploadimages', isAuth, async (req, res) => {
