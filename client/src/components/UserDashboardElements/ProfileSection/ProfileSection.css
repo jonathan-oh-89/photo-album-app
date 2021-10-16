@@ -20,6 +20,7 @@
     flex-direction: column;
     justify-content: center;
     word-wrap: break-word;
+    text-align: center;
 }
 
 .profile-header h1 {

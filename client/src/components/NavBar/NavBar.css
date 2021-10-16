@@ -54,4 +54,5 @@
     float: right;
     margin-right: 2rem;
     margin-left: auto;
+    min-width: 200px;
 }
