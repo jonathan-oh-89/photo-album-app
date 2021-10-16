@@ -8,6 +8,10 @@
     margin-bottom: 3rem;
 }
 
+.logo-section {
+    white-space: nowrap;
+}
+
 .logo-link {
     text-decoration: none;
     color: white;
@@ -27,11 +31,11 @@
 
 .nav-menu {
     display: flex;
-    width: 50vw;
+    /* width: 50vw; */
+    width: 100%;
     text-align: center;
     list-style: none;
-    margin-right: 2rem;
-    justify-content: right;
+    justify-content: center;
 }
 
 .nav-link {

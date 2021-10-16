@@ -5,6 +5,7 @@ import { UserAuthButton } from "../Buttons/Buttons";
 import { AppContext } from "../../context/appContext";
 
 export const HeroSection = () => {
+    console.log("Rendering HeroSection");
     const { appState } = useContext(AppContext);
 
     return (
@@ -17,7 +18,7 @@ export const HeroSection = () => {
                 {appState.userAuthenticated ? "" : <UserAuthButton />}
 
             </div>
-            <img className="imgclass" src={heroimage} alt="heroimage" />
+            <img className="hero-image-1" src={heroimage} alt="heroimage" />
         </div>
     )
 }

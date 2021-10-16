@@ -1,8 +1,8 @@
 .hero-section {
     display: flex;
     align-items: center;
-    margin: 0 12% 0 12%;
-    height: 80vh;
+    margin: 0 12% 5% 12%;
+    height: 60vh;
 }
 
 .hero-text-section {
@@ -20,7 +20,14 @@
     font-weight: lighter;
 }
 
-.hero-section img {
+
+.hero-section button {
+    margin-top: 15px;
+    padding: 15px 60px;
+}
+
+
+.hero-image-1 {
     display: flex;
     max-width: 80%;
     max-height: 80%;
@@ -28,7 +35,10 @@
     align-items: center;
 }
 
-.hero-section button {
-    margin-top: 15px;
-    padding: 15px 60px;
-}
+.hero-image-2 {
+    display: flex;
+    object-fit: fill;
+    align-items: center;
+    border-color: lavender;
+    border: 5px solid #555;
+}   

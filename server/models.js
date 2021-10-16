@@ -1,11 +1,6 @@
-
 const mongoose = require('mongoose');
 
 const UserSchema = mongoose.Schema({
-    // userid: {
-    //     type: String,
-    //     required: true
-    // },
     username: {
         type: String,
         required: true
@@ -21,8 +16,6 @@ const UserSchema = mongoose.Schema({
 },
     { autoCreate: true }
 );
-
-// UserSchema.plugin(passportLocalMongoose);
 
 
 module.exports = mongoose.model('User', UserSchema)

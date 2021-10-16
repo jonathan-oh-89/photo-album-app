@@ -6,18 +6,21 @@ import { AppContext } from "../../context/appContext";
 import { UserAuthButton, LoggedInButton } from "../Buttons/Buttons";
 
 export const NavBar = () => {
-    console.log("RENDER Navbar");
+    console.log("Rendering NavBar");
     const { appState } = useContext(AppContext);
 
     return (
         <>
             <nav className="navbar">
-                <Link to="/" className="logo-link">
-                    <div className="navbar-logo">
-                        <h1>Photo Album</h1>
-                        <FcCompactCamera size={45} />
-                    </div>
-                </Link>
+                <div className="logo-section">
+                    <Link to="/" className="logo-link">
+                        <div className="navbar-logo">
+                            <h1>Photo Album</h1>
+                            <FcCompactCamera size={45} />
+                        </div>
+                    </Link>
+                </div>
+
 
                 <ul className="nav-menu">
                     <Link to="/photogallery" className="nav-link">
@@ -25,9 +28,6 @@ export const NavBar = () => {
                     </Link>
                     <Link to="/about" className="nav-link">
                         <li>About</li>
-                    </Link>
-                    <Link to="/contact" className="nav-link">
-                        <li>Contact</li>
                     </Link>
                 </ul>
 

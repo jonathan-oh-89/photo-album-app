@@ -1,5 +1,10 @@
 const mongoose = require('mongoose');
-require('dotenv').config();
+const path = require('path');
+
+if (process.env.NODE_ENV !== "production") {
+    require('dotenv').config({ path: path.resolve(__dirname, '../../.env') });
+}
+
 
 const mongoURI = process.env.MONGO_URI
 const mongoDBName = process.env.MONGO_DBNAME

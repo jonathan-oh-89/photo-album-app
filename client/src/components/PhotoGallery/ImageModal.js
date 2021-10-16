@@ -13,7 +13,7 @@ export const ImageModal = ({ data, toggleImageModal }) => {
         <div className="image-modal-container" onClick={closeImageModal}>
             <div className="image-modal">
                 <img src={data.url} alt="" />
-                <div className="image-modal-text">Photo taken by {data.username}</div>
+                <div className="image-modal-text">Photo uploaded by {data.username}</div>
             </div>
         </div>
     )

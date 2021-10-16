@@ -1,4 +1,4 @@
-// const path = require('path');
+const path = require('path');
 const express = require('express');
 const cors = require('cors');
 const session = require('express-session');
@@ -7,10 +7,22 @@ const User = require('./models');
 const bcrypt = require('bcrypt');
 const cookieParser = require('cookie-parser');
 
-require('dotenv').config();
+const app = express();
+
+if (process.env.NODE_ENV !== "production") {
+    require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
+}
+
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static(path.join(__dirname, '../client/build')));
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+    });
+}
+
+
 const sessionStore = require('./config/db');
 
-const app = express();
 
 const allowedOrigins = ['http://localhost:3000'];
 const corsOptions = {
@@ -176,7 +188,9 @@ app.get('*', (req, res) => {
     res.send('Did not reach any apis');
 })
 
-const PORT = 8000
+
+
+const PORT = process.env.PORT || 8000
 
 app.listen(PORT, () => {
     console.log("Listening to PORT ", PORT);

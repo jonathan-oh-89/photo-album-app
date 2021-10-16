@@ -10,7 +10,7 @@ import { useHistory } from "react-router-dom";
 
 
 export const AuthenticationForm = () => {
-    console.log("RENDERING SIGNUP FORM");
+    console.log("Rendering AuthenticationForm");
     const { appState, dispatch } = useContext(AppContext);
     const [userSignUp, toggleAuthType] = useState(true);
     const [failedLogin, showFailedAuthMsg] = useState(false);

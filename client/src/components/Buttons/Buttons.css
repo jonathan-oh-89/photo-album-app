@@ -7,6 +7,7 @@
     padding: 10px 30px;
     background: #004BA8;
     color: white;
+    white-space: nowrap;
 }
 
 .sign-button:hover {
@@ -21,7 +22,6 @@
     border: none;
     border-radius: 5px;
     padding: 10px 15px;
-    /* background: #004BA8; */
     background-color: inherit;
     color: white;
     justify-content: center;
@@ -35,10 +35,6 @@
 .loggedin-icon {
     margin-left: 5px;
 }
-
-
-
-
 
 .user-dropdown {
     position: relative;

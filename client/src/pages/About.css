@@ -13,6 +13,9 @@
     font-weight: lighter;
     margin-bottom: 20px;
 }
+.about-text {
+    padding: 0 20%;
+}
 
 .about-page img {
     max-height:150px;
@@ -23,6 +26,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+
+@media only screen and (max-width: 1300px) {
+    .tech-images {
+        flex-wrap: wrap;
+    }    
 }
 
 .about-page p {
