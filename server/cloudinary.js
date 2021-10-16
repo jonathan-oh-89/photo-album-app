@@ -28,7 +28,7 @@ module.exports.cloudinaryUpload = async (imgFiles, username) => {
                 public_id: imageid,
             }).then((result) => {
                 console.log("*** Success: Cloudinary Upload");
-                photoAlbum.push({ imageid: imageid, url: result.url });
+                photoAlbum.push({ imageid: imageid, url: result.secure_url });
             }).catch((err) => {
                 console.log("*** Error: Cloudinary Upload");
             })
@@ -59,7 +59,8 @@ module.exports.cloudinaryRetrieve = async (username) => {
 
     await cloudinary.search.expression(`folder: ${username}`).execute().then(results => {
         results.resources.map(img => {
-            photoIdArray.push({ imageid: img.filename, url: img.url })
+            console.log(img);
+            photoIdArray.push({ imageid: img.filename, url: img.secure_url })
         })
     })
     return photoIdArray;
@@ -71,7 +72,7 @@ module.exports.cloudinaryRetrieveAll = async () => {
     const photoIdArray = []
     await cloudinary.search.expression().execute().then(results => {
         results.resources.map(img => {
-            photoIdArray.push({ username: img.folder, imageid: img.filename, url: img.url })
+            photoIdArray.push({ username: img.folder, imageid: img.filename, url: img.secure_url })
         })
     }).catch((err) => { console.log("Cloudinary retrieve all error: ", err); }
     )
